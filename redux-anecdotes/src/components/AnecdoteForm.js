@@ -19,7 +19,9 @@ const AnecdoteForm = (props) => {
         <div>
           <input name='anecdote' />
         </div>
-        <button>create</button>
+        <button style={{ marginTop: '10px', marginBottom: '20px' }}>
+          create
+        </button>
       </form>
     </>
   );
