@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = { message: null };
+const initialState = null;
 
 const notifSlice = createSlice({
   name: 'notif',
@@ -8,10 +8,10 @@ const notifSlice = createSlice({
   reducers: {
     setNotif(state, action) {
       const newNotif = action.payload;
-      return { message: newNotif };
+      return newNotif;
     },
     removeNotif(state, action) {
-      return { message: null };
+      return null;
     },
   },
 });

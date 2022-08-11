@@ -4,6 +4,7 @@ import { setNotif, removeNotif } from '../reducers/notificationReducer';
 
 const AnecdoteList = (props) => {
   const anecdotes = useSelector((state) => state.anecdotes);
+  const anecdoteFilter = useSelector((state) => state.filter);
   const dispatch = useDispatch();
 
   const vote = (id, content) => {
@@ -17,17 +18,21 @@ const AnecdoteList = (props) => {
 
   return (
     <>
-      {anecdotes.map((anecdote) => (
-        <div key={anecdote.id}>
-          <div>{anecdote.content}</div>
-          <div>
-            has {anecdote.votes}
-            <button onClick={() => vote(anecdote.id, anecdote.content)}>
-              vote
-            </button>
+      {anecdotes
+        .filter((anecdote) =>
+          anecdote.content.toLowerCase().includes(anecdoteFilter)
+        )
+        .map((anecdote) => (
+          <div key={anecdote.id}>
+            <div>{anecdote.content}</div>
+            <div>
+              has {anecdote.votes}
+              <button onClick={() => vote(anecdote.id, anecdote.content)}>
+                vote
+              </button>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
     </>
   );
 };
