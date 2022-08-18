@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { createAnecdote } from '../reducers/anecdoteReducer';
 import { setNotif, removeNotif } from '../reducers/notificationReducer';
+import Button from 'react-bootstrap/Button';
 
 const AnecdoteForm = (props) => {
   const dispatch = useDispatch();
@@ -26,9 +27,12 @@ const AnecdoteForm = (props) => {
         <div>
           <input name='anecdote' />
         </div>
-        <button style={{ marginTop: '10px', marginBottom: '20px' }}>
+        <Button
+          variant='outline-warning'
+          style={{ marginTop: '10px', marginBottom: '20px' }}
+        >
           create
-        </button>
+        </Button>
       </form>
     </>
   );

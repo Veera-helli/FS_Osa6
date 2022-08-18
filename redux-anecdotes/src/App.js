@@ -13,8 +13,8 @@ const App = () => {
   }, [dispatch]);
 
   return (
-    <div>
-      <h2>Anecdotes</h2>
+    <div className='container m-5'>
+      <h2 className='display-3'>Anecdotes</h2>
       <Notification />
       <AnecdoteForm />
       <Filter />

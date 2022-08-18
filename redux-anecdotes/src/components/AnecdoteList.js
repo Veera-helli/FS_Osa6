@@ -1,7 +1,8 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { newVote } from '../reducers/anecdoteReducer';
 import { setNotif, removeNotif } from '../reducers/notificationReducer';
-import anecdoteService from '../services/anecdotes';
+
+import Button from 'react-bootstrap/Button';
 
 const AnecdoteList = (props) => {
   const anecdotes = useSelector((state) => state.anecdotes);
@@ -28,13 +29,22 @@ const AnecdoteList = (props) => {
           anecdote.content.toLowerCase().includes(anecdoteFilter)
         )
         .map((anecdote) => (
-          <div key={anecdote.id}>
-            <div>{anecdote.content}</div>
-            <div>
-              has {anecdote.votes}
-              <button onClick={() => vote(anecdote.id, anecdote.content)}>
+          <div key={anecdote.id} className='align-items-center'>
+            <div className='col-md-8 mt-3 align-self-center'>
+              {anecdote.content}
+            </div>
+            <div className='d-flex align-items-center'>
+              <div className='text-dark'>Votes </div>
+              <div className='ms-1 fs-4 text-dark'>{anecdote.votes}</div>
+            </div>
+            <div className='align-self-center'>
+              <Button
+                className='m-2'
+                variant='outline-warning'
+                onClick={() => vote(anecdote.id, anecdote.content)}
+              >
                 vote
-              </button>
+              </Button>
             </div>
           </div>
         ))}
