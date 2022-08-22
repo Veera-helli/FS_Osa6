@@ -7,6 +7,7 @@ import Button from 'react-bootstrap/Button';
 const AnecdoteList = (props) => {
   const anecdotes = useSelector((state) => state.anecdotes);
   const anecdoteFilter = useSelector((state) => state.filter);
+
   const dispatch = useDispatch();
 
   const vote = async (id, content) => {

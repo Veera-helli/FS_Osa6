@@ -30,7 +30,6 @@ export const setNotification = (content, seconds) => {
     const time = 1000 * seconds;
     dispatch(setNotif(content));
     const id = setTimeout(() => {
-      console.log('In timeout');
       dispatch(removeNotif());
     }, time);
     dispatch(setID(id));
