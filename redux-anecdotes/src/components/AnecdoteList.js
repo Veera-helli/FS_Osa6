@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { newVote } from '../reducers/anecdoteReducer';
-import { setNotif, removeNotif } from '../reducers/notificationReducer';
+import { setNotification } from '../reducers/notificationReducer';
 
 import Button from 'react-bootstrap/Button';
 
@@ -15,11 +15,7 @@ const AnecdoteList = (props) => {
     // await anecdoteService.update(id, changedAnecdote);
     dispatch(newVote(id, changedAnecdote));
 
-    dispatch(setNotif(`voted for: ${content}`));
-    setTimeout(() => {
-      dispatch(removeNotif());
-    }, 5000);
-    // console.log('voted', id);
+    dispatch(setNotification(`voted for: ${content}`, 5));
   };
 
   return (

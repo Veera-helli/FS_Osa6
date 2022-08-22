@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { createAnecdote } from '../reducers/anecdoteReducer';
-import { setNotif, removeNotif } from '../reducers/notificationReducer';
+import { setNotification } from '../reducers/notificationReducer';
 import Button from 'react-bootstrap/Button';
 
 const AnecdoteForm = (props) => {
@@ -12,11 +12,7 @@ const AnecdoteForm = (props) => {
     event.target.anecdote.value = '';
     dispatch(createAnecdote(content));
 
-    dispatch(setNotif(`Added a new anecdote: ${content}`));
-    setTimeout(() => {
-      // console.log('Timeout!');
-      dispatch(removeNotif());
-    }, 5000);
+    dispatch(setNotification(`Added a new anecdote: ${content}`, 5));
     console.log('new anecdote: ', content);
   };
 
@@ -30,6 +26,7 @@ const AnecdoteForm = (props) => {
         <Button
           variant='outline-warning'
           style={{ marginTop: '10px', marginBottom: '20px' }}
+          type='submit'
         >
           create
         </Button>
